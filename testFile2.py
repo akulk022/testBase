@@ -1,8 +1,8 @@
-import pickle
+import json
 
-#pickle.loads() can execute arbitrary code if the input is malicious. An attacker could craft input that runs any Python code—a major security risk.
+#This fixes the insecure deserialization vulnerability.
 def load_user_data(data):
-    return pickle.loads(data)
+    return json.loads(data)
 
-user_input = input("Paste your serialized data: ")
-user_data = load_user_data(user_input.encode())
+user_input = input("Paste your serialized data (JSON): ")
+user_data = load_user_data(user_input)

@@ -4,5 +4,6 @@ import json
 def load_user_data(data):
     return json.loads(data)
 
+#take user input
 user_input = input("Paste your serialized data (JSON): ")
 user_data = load_user_data(user_input)

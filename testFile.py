@@ -1,8 +1,8 @@
-import os
+import subprocess
 
+#This fixes the OS Injection Vulnerability in the previous commit
 def list_files(directory):
-    os.system(f"ls {directory}")
+    subprocess.run(["ls", directory], check=True)
 
-#Security Vulnerability If the user enters something like ; rm -rf /, the code will execute it!
 user_input = input("Enter directory name: ")
 list_files(user_input)
